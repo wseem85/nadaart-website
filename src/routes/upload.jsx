@@ -20,10 +20,18 @@ import useWindowWidth from "../hooks/useWindowWidth";
 import SpinnerMini from "../ui/spinnerMini";
 const StyledUploadForm = styled(Form)`
   background-color: var(--color-beige-300);
+  row-gap: 1rem;
   margin-bottom: 4rem;
   & input,
   & textarea {
     background-color: var(--color-grey-50);
+  }
+  & input:disabled,
+  & textarea:disabled {
+    background-color: var(--color-grey-200);
+  }
+  & button:disabled {
+    opacity: 0.7;
   }
 `;
 export default function Upload() {
@@ -45,7 +53,7 @@ export default function Upload() {
       toast.error(err.message);
     },
   });
-  const { register, handleSubmit, formState, trigger, reset } = useForm({
+  const { register, handleSubmit, formState, reset } = useForm({
     defaultValues: {},
   });
   const errors = formState.errors;
@@ -205,6 +213,7 @@ export default function Upload() {
             style={{ gridTemplateColumns: "unset" }}
           >
             <Textarea
+              disabled={isCreating}
               type="text"
               id="description"
               defaultValue=""
@@ -223,6 +232,7 @@ export default function Upload() {
           {/* <StyledPictureFeildContainer>
           <label>Picture</label> */}
           <FileInput
+            disabled={isCreating}
             id="src"
             accept="image/*"
             {...register("src", {
@@ -243,6 +253,7 @@ export default function Upload() {
           {/* type is an HTML attribute! */}
           <Button
             variation="outlined"
+            disabled={isCreating}
             type="reset"
             //   onClick={() => onCloseModal?.()}
           >

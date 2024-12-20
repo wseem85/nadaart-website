@@ -15,7 +15,7 @@ import Avatar from "./avatar";
 import SpinnerMini from "./spinnerMini";
 import Stack from "./stack";
 import useWindowWidth from "../hooks/useWindowWidth";
-import Loading from "./loading";
+
 const links = [
   { text: "Home", path: "/" },
   { text: "Artworks", path: "/artworks" },
@@ -29,6 +29,8 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 10;
   min-height: 4rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -69,7 +69,14 @@ function EditPictureForm({ picture }) {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} style={{ maxWidth: "unset" }}>
+    <Form
+      onSubmit={handleSubmit(onSubmit)}
+      style={{
+        maxWidth: "unset",
+        backgroundColor: "var(--color-beige-300)",
+        rowGap: "1rem",
+      }}
+    >
       <FormRow label="Title" labelWidth="110px" error={errors?.title?.message}>
         <Input
           type="text"
@@ -188,6 +195,7 @@ function EditPictureForm({ picture }) {
           error={errors?.description?.message}
         >
           <Textarea
+            disabled={isEditing}
             type="text"
             id="description"
             placeholder="Write a Description For the Artwork"
@@ -200,7 +208,12 @@ function EditPictureForm({ picture }) {
       <FormRow labelWidth="110px" label="Picture" error={errors?.src?.message}>
         {/* <StyledPictureFeildContainer>
           <label>Picture</label> */}
-        <FileInput id="src" accept="image/*" {...register("src")} />
+        <FileInput
+          id="src"
+          accept="image/*"
+          {...register("src")}
+          disabled={isEditing}
+        />
         {/* </StyledPictureFeildContainer> */}
       </FormRow>
 
@@ -214,6 +227,7 @@ function EditPictureForm({ picture }) {
         }}
       >
         <Button
+          disabled={isEditing}
           $height={windowWidth < 600 ? "unset" : "45px"}
           variation="secondary"
           type="button"
