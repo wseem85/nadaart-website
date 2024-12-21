@@ -16,6 +16,8 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { IoMdArrowBack } from "react-icons/io";
 import { BsCartDashFill } from "react-icons/bs";
 import Error from "../ui/error";
+import Paragraph from "../ui/paragraph";
+import { MdHome } from "react-icons/md";
 
 const StyledPicturePageContiner = styled.div`
   padding: 0.7rem 1rem;
@@ -237,7 +239,26 @@ export default function ArtWork() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   if (isPending) return <Spinner />;
-  if (isError) return <Error message={error.message}></Error>;
+  if (isError)
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "calc(100vh - 200px)",
+        }}
+      >
+        <Error message={error.message}></Error>
+        <Paragraph>
+          Maybe Picture does not exist , or has been deleted.
+        </Paragraph>
+        <ButtonIconText handler={() => navigate("/")}>
+          <span>Home</span> <MdHome />
+        </ButtonIconText>
+      </div>
+    );
   const finalFilteredPictures =
     filteredPictures?.length > 6
       ? filteredPictures.slice(0, 7)

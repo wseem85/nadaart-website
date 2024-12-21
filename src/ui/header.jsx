@@ -253,7 +253,7 @@ export default function Header() {
                       </StyledNavLink>
                     ) : (
                       <StyledSubMenuLink>
-                        {isPending || fetchStatus === "fetching" ? (
+                        {isPending ? (
                           <SpinnerMini />
                         ) : (
                           <NavLink
@@ -366,7 +366,7 @@ export default function Header() {
                   </StyledNavLink>
                 ) : (
                   <StyledSubMenuLink>
-                    {isPending || fetchStatus === "fetching" ? (
+                    {isPending ? (
                       <SpinnerMini />
                     ) : (
                       <>

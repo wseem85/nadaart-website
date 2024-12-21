@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   --font-xl: 3rem;
   --font-2xl:4rem;
   --font-3xl:5rem;
-  /* Indigo */
+ 
   --color-brand-highTransparency:rgba(55,65,81,0.1);
   --color-brand-midTransparency:rgba(55,65,81,0.3);
   --color-brand-smallTransparency:rgba(55,65,81,0.5);
@@ -26,16 +26,7 @@ const GlobalStyles = createGlobalStyle`
   --color-brand-700: #257180;
   --color-brand-800: #165864;
   --color-brand-900: #165864;
-  /* --color-brand-50: #E0FFFF;
-  --color-brand-100: #7CB9E8;
-  --color-brand-200: #6CB4EE;
-  --color-brand-300: #00BFFF;
-  --color-brand-400: #0CAFFF;
-  --color-brand-500: #0071c5;
-  --color-brand-600: #1560bd;
-  --color-brand-700: #034694;
-  --color-brand-800: #012169;
-  --color-brand-900: #002D62; */
+
   --color-beige-100:#FFFDFA;
   --color-beige-300:#FAF7F0;
   --color-beige-400:#f2ebda;
@@ -48,8 +39,8 @@ const GlobalStyles = createGlobalStyle`
   --border-radius-sm: 5px;
   --border-radius-md: 7px;
   --border-radius-lg: 9px;
-  /* Grey */
-   &,&.light-mode {
+
+   & {
     --color-grey-0: #fff;
   --color-grey-50: #f9fafb;
   --color-grey-100: #f3f4f6;
@@ -80,8 +71,9 @@ const GlobalStyles = createGlobalStyle`
 
 
 
-  --backdrop-color: rgba(255, 255, 255, 0.1);}
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  --backdrop-color: rgba(255, 255, 255, 0.1);
+  }
+  
   /* --shadow-sm: 0 1px 2px rgba(37,113,128, 0.08); */
   --shadow-sm: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   /* --shadow-md: 0px 0.6rem 2.4rem rgba(177,116,87, 0.1); */
@@ -103,43 +95,7 @@ const GlobalStyles = createGlobalStyle`
   --image-grayscale: 0;
   --image-opacity: 100%;
 }
- &.dark-mode{
-  --color-grey-0: #18212f;
---color-grey-50: #111827;
---color-grey-100: #1f2937;
---color-grey-200: #374151;
---color-grey-300: #4b5563;
---color-grey-400: #6b7280;
---color-grey-500: #9ca3af;
---color-grey-600: #d1d5db;
---color-grey-700: #e5e7eb;
---color-grey-800: #f3f4f6;
---color-grey-900: #f9fafb;
 
---color-blue-100: #075985;
---color-blue-700: #e0f2fe;
---color-green-100: #166534;
---color-green-700: #dcfce7;
---color-yellow-100: #854d0e;
---color-yellow-700: #fef9c3;
---color-silver-100: #374151;
---color-silver-700: #f3f4f6;
---color-indigo-100: #3730a3;
---color-indigo-700: #e0e7ff;
-
---color-red-100: #fee2e2;
---color-red-700: #b91c1c;
---color-red-800: #991b1b;
-
---backdrop-color: rgba(0, 0, 0, 0.3);
-
---shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
---shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.3);
---shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
-
---image-grayscale: 10%;
---image-opacity: 90%;
- }
 *,
 *::before,
 *::after {
@@ -198,10 +154,6 @@ select:focus {
   outline-offset: -1px;
 }
 
-/* Parent selector, finally 😃 */
-/* button:has(svg) {
-  line-height: 0;
-} */
 
 a {
   color: inherit;
@@ -301,20 +253,7 @@ img {
     opacity: 0.3;
   }
 }
-/* @keyframes moveOutLeft {
-  0%{
-    transform: translateX(-100%);
-  }
-  95%{
-   transform: translateX(0)
-  }
- 100%{
-  transform: translateX(-100%);
- }
-}
-.animate-move-out-left{
-  animation: moveOutLeft 0.5s  ease forwards;
-} */
+
  @keyframes  pulse {
           0% {
             opacity: 0.3
@@ -340,44 +279,6 @@ img {
 .animate-show{
   animation: show 0.1s ease forwards;
 }
-/*
-FOR DARK MODE
 
---color-grey-0: #18212f;
---color-grey-50: #111827;
---color-grey-100: #1f2937;
---color-grey-200: #374151;
---color-grey-300: #4b5563;
---color-grey-400: #6b7280;
---color-grey-500: #9ca3af;
---color-grey-600: #d1d5db;
---color-grey-700: #e5e7eb;
---color-grey-800: #f3f4f6;
---color-grey-900: #f9fafb;
-
---color-blue-100: #075985;
---color-blue-700: #e0f2fe;
---color-green-100: #166534;
---color-green-700: #dcfce7;
---color-yellow-100: #854d0e;
---color-yellow-700: #fef9c3;
---color-silver-100: #374151;
---color-silver-700: #f3f4f6;
---color-indigo-100: #3730a3;
---color-indigo-700: #e0e7ff;
-
---color-red-100: #fee2e2;
---color-red-700: #b91c1c;
---color-red-800: #991b1b;
-
---backdrop-color: rgba(0, 0, 0, 0.3);
-
---shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
---shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.3);
---shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.4);
-
---image-grayscale: 10%;
---image-opacity: 90%;
-*/
 `;
 export default GlobalStyles;

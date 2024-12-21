@@ -81,10 +81,6 @@ const router = createBrowserRouter([
             path: "admin/dashboard/upload/new",
             element: <Upload />,
           },
-          {
-            path: "admin/spinner",
-            element: <Spinner />,
-          },
         ],
       },
     ],

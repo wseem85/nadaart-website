@@ -31,12 +31,14 @@ const StyledImage = styled.img`
   object-fit: cover;
 `;
 const StyledOldPrice = styled.span`
-  color: var(--color-grey-400);
+  color: var(--color-grey-500);
+  letter-spacing: 1.1px;
   text-decoration: line-through;
 `;
 const StyledNewPrice = styled.span`
   color: var(--color-grey-800);
   font-weight: 700;
+  letter-spacing: 1.1px;
   color: var(--color-green-700);
 `;
 const StyledDescription = styled.div`
@@ -76,7 +78,7 @@ export default function NewArtworkCard({ picture }) {
       <StyledInStoreTag availability={soldOut ? "soldOut" : "available"}>
         {soldOut ? "Sold Out" : "Available"}
       </StyledInStoreTag>
-      <StyledSaleTag>Sale {discount} %</StyledSaleTag>
+      {discount !== 0 ? <StyledSaleTag>Sale {discount} %</StyledSaleTag> : null}
       <Link to={`artworks/${id}`}>
         <StyledImageContainer>
           <StyledImage src={src} alt={title} />

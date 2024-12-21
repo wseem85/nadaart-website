@@ -2,7 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { editPicture, getPicture } from "../services/apiPictures";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+
 import PropTypes from "prop-types";
 import Form from "../ui/form";
 import FormRow from "../ui/formRow";
