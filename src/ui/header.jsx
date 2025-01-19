@@ -29,8 +29,7 @@ const StyledHeader = styled.header`
   top: 0;
   z-index: 10;
   min-height: 4rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
