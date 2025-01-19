@@ -1,30 +1,30 @@
-import { animated } from "@react-spring/web";
-import styled from "styled-components";
-import { MdArrowDropDown, MdArrowDropUp, MdMenu } from "react-icons/md";
-import { MdClose } from "react-icons/md";
+import { animated } from '@react-spring/web';
+import styled from 'styled-components';
+import { MdArrowDropDown, MdArrowDropUp, MdMenu } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 
-import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
-import { IoMdLogIn, IoMdLogOut } from "react-icons/io";
-import useCurrentUser from "../hooks/useCurrentUser";
-import Button from "./button";
+import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
+import useCurrentUser from '../hooks/useCurrentUser';
+import Button from './button';
 
-import useLogout from "../hooks/useLogOut";
-import Avatar from "./avatar";
-import SpinnerMini from "./spinnerMini";
-import Stack from "./stack";
-import useWindowWidth from "../hooks/useWindowWidth";
+import useLogout from '../hooks/useLogOut';
+import Avatar from './avatar';
+import SpinnerMini from './spinnerMini';
+import Stack from './stack';
+import useWindowWidth from '../hooks/useWindowWidth';
 
 const links = [
-  { text: "Home", path: "/" },
-  { text: "Artworks", path: "/artworks" },
-  { text: "User", path: "/user" },
-  { text: "Cart", path: "/cart" },
+  { text: 'Home', path: '/' },
+  { text: 'Artworks', path: '/artworks' },
+  { text: 'User', path: '/user' },
+  { text: 'Cart', path: '/cart' },
 ];
 const StyledHeader = styled.header`
   background-color: var(--color-beige-300);
-  padding: 1rem 0.5rem;
+  padding: 1rem 1rem;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -35,8 +35,8 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   @media screen and (min-width: 500px) {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   @media screen and (min-width: 769px) {
     padding-left: 2rem;
@@ -45,7 +45,7 @@ const StyledHeader = styled.header`
 `;
 export const StyledLogo = styled.p`
   font-size: var(--font-xl);
-  font-family: "Updock", cursive;
+  font-family: 'Updock', cursive;
   font-weight: 600;
   font-style: normal;
   color: var(--color-beige-700);
@@ -128,7 +128,7 @@ export default function Header() {
   const { windowWidth } = useWindowWidth();
   const userMenuRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const { isPending, user, fetchStatus, isAuthenticated } = useCurrentUser();
+  const { isPending, user, isAuthenticated } = useCurrentUser();
   // open state to trigger the animation on mount , unmount
   const [open, setOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -162,9 +162,9 @@ export default function Header() {
       }
     }
 
-    document.addEventListener("click", handleClick, true);
+    document.addEventListener('click', handleClick, true);
 
-    return () => document.removeEventListener("click", handleClick);
+    return () => document.removeEventListener('click', handleClick);
   }, []);
   useEffect(function () {
     function handleClick(e) {
@@ -173,9 +173,9 @@ export default function Header() {
       }
     }
 
-    document.addEventListener("click", handleClick, true);
+    document.addEventListener('click', handleClick, true);
 
-    return () => document.removeEventListener("click", handleClick);
+    return () => document.removeEventListener('click', handleClick);
   }, []);
   function handleLogOut() {
     mutate();
@@ -197,36 +197,36 @@ export default function Header() {
             <StyledOpenButton onClick={handleOpenMenu}>
               <MdMenu
                 style={{
-                  width: "2.5rem",
-                  height: "2.5rem",
-                  fontWeight: "bold",
+                  width: '2.5rem',
+                  height: '2.5rem',
+                  fontWeight: 'bold',
                 }}
               />
             </StyledOpenButton>
             {openMenu && (
               <animated.ul
                 ref={navRef}
-                className={open ? "animate-grow" : "animate-disappear"}
+                className={open ? 'animate-grow' : 'animate-disappear'}
                 style={{
-                  backgroundColor: "#fff",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
+                  backgroundColor: '#fff',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
                   height: 0,
 
-                  overflow: "hidden",
+                  overflow: 'hidden',
 
-                  boxShadow: " var(--shadow-lg)",
-                  position: "absolute",
+                  boxShadow: ' var(--shadow-lg)',
+                  position: 'absolute',
                   zIndex: 9999,
-                  width: "100vw",
+                  width: '100vw',
                   top: 0,
                   left: 0,
                 }}
               >
                 <li
                   style={{
-                    marginTop: "4rem",
+                    marginTop: '4rem',
                   }}
                 ></li>
                 {links.map((link) => (
@@ -238,14 +238,14 @@ export default function Header() {
                       }
                     }
                   >
-                    {link.path !== "/user" ? (
+                    {link.path !== '/user' ? (
                       <StyledNavLink
                         to={link.path}
                         style={{
                           color:
                             activeLink === link.path
-                              ? "var(--color-brand-700)"
-                              : "",
+                              ? 'var(--color-brand-700)'
+                              : '',
                         }}
                         onClick={handleCloseMenu}
                       >
@@ -262,10 +262,10 @@ export default function Header() {
                             style={{
                               color:
                                 activeLink === link.path
-                                  ? "var(--color-brand-700)"
-                                  : "",
-                              display: "flex",
-                              alignItems: "center",
+                                  ? 'var(--color-brand-700)'
+                                  : '',
+                              display: 'flex',
+                              alignItems: 'center',
                             }}
                           >
                             You
@@ -274,21 +274,21 @@ export default function Header() {
 
                         <ul
                           style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "1.2rem",
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '1.2rem',
                             // paddingTop: "1rem",
-                            textTransform: "capitalize",
+                            textTransform: 'capitalize',
                           }}
                         >
                           {!user || !isAuthenticated ? (
-                            <NavLink to={"/login"} onClick={handleCloseMenu}>
+                            <NavLink to={'/login'} onClick={handleCloseMenu}>
                               <li
                                 style={{
-                                  fontSize: "90%",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "0.6rem",
+                                  fontSize: '90%',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '0.6rem',
                                 }}
                               >
                                 <IoMdLogIn /> Log in
@@ -296,19 +296,19 @@ export default function Header() {
                             </NavLink>
                           ) : !isLoggingOut ? (
                             <Button
-                              style={{ color: "var(--color-red-700)" }}
+                              style={{ color: 'var(--color-red-700)' }}
                               variation="plainlink"
                               onClick={handleLogOut}
                             >
                               <li
                                 style={{
-                                  fontSize: "90%",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "0.6rem",
+                                  fontSize: '90%',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '0.6rem',
                                 }}
                               >
-                                <IoMdLogIn /> Log out{" "}
+                                <IoMdLogIn /> Log out{' '}
                                 <Avatar img={user.user_metadata.avatar} />
                               </li>
                             </Button>
@@ -323,20 +323,20 @@ export default function Header() {
                 <StyledCloseButton onClick={handleCloseMenu}>
                   <MdClose
                     style={{
-                      width: "2.5rem",
-                      height: "2.5rem",
-                      fontWeight: "bold",
+                      width: '2.5rem',
+                      height: '2.5rem',
+                      fontWeight: 'bold',
                     }}
                   />
                 </StyledCloseButton>
                 <li
                   style={{
-                    marginTop: "2rem",
-                    paddingBottom: "2rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
+                    marginTop: '2rem',
+                    paddingBottom: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
                 >
                   <StyledLogo>Nada Art {new Date().getFullYear()}</StyledLogo>
@@ -346,20 +346,20 @@ export default function Header() {
           </>
         )}
         {windowWidth >= 640 && (
-          <ul style={{ display: "flex", gap: "2.3rem" }}>
+          <ul style={{ display: 'flex', gap: '2.3rem' }}>
             {links.map((link) => (
               <li
                 key={link.text}
-                style={{ textTransform: "uppercase", letterSpacing: "1.5px" }}
+                style={{ textTransform: 'uppercase', letterSpacing: '1.5px' }}
               >
-                {link.path !== "/user" ? (
+                {link.path !== '/user' ? (
                   <StyledNavLink
                     to={link.path}
                     style={{
                       color:
                         activeLink === link.path
-                          ? "var(--color-brand-700)"
-                          : "",
+                          ? 'var(--color-brand-700)'
+                          : '',
                     }}
                   >
                     {link.text}
@@ -376,70 +376,70 @@ export default function Header() {
                           style={{
                             color:
                               activeLink === link.path
-                                ? "var(--color-brand-700)"
-                                : "",
+                                ? 'var(--color-brand-700)'
+                                : '',
                           }}
                         >
-                          You{" "}
+                          You{' '}
                         </NavLink>
                         <button
                           onClick={() => setUserMenuOpen((open) => !open)}
                         >
                           {!userMenuOpen ? (
-                            <MdArrowDropDown style={{ fontSize: "2.5rem" }} />
+                            <MdArrowDropDown style={{ fontSize: '2.5rem' }} />
                           ) : (
-                            <MdArrowDropUp style={{ fontSize: "2.5rem" }} />
+                            <MdArrowDropUp style={{ fontSize: '2.5rem' }} />
                           )}
                         </button>
                         {userMenuOpen ? (
                           <animated.ul
                             className="animate-show"
                             style={{
-                              padding: "1.3rem",
-                              paddingTop: "2rem",
-                              position: "absolute",
-                              top: "45px",
-                              borderTop: "1px solid var(--color-beige-500)",
-                              overflow: "hidden",
-                              left: "-3.2rem",
-                              height: "0",
-                              width: "14rem",
-                              backgroundColor: "var(--color-beige-300)",
-                              display: "flex",
-                              flexDirection: "column",
-                              gap: "1.2rem",
+                              padding: '1.3rem',
+                              paddingTop: '2rem',
+                              position: 'absolute',
+                              top: '45px',
+                              borderTop: '1px solid var(--color-beige-500)',
+                              overflow: 'hidden',
+                              left: '-3.2rem',
+                              height: '0',
+                              width: '14rem',
+                              backgroundColor: 'var(--color-beige-300)',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: '1.2rem',
                               // paddingTop: "1rem",
-                              textTransform: "capitalize",
+                              textTransform: 'capitalize',
                             }}
                             ref={userMenuRef}
                           >
                             {!user || !isAuthenticated ? (
                               <>
                                 <NavLink
-                                  to={"/login"}
+                                  to={'/login'}
                                   onClick={() => setUserMenuOpen(false)}
                                 >
                                   <li
                                     style={{
-                                      fontSize: "90%",
-                                      display: "flex",
-                                      alignItems: "center",
-                                      gap: "0.6rem",
+                                      fontSize: '90%',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '0.6rem',
                                     }}
                                   >
                                     <IoMdLogIn /> Log in
                                   </li>
                                 </NavLink>
                                 <NavLink
-                                  to={"/signup"}
+                                  to={'/signup'}
                                   onClick={() => setUserMenuOpen(false)}
                                 >
                                   <li
                                     style={{
-                                      fontSize: "90%",
-                                      display: "flex",
-                                      alignItems: "center",
-                                      gap: "0.6rem",
+                                      fontSize: '90%',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '0.6rem',
                                     }}
                                   >
                                     <IoMdLogIn /> Sign up
@@ -449,23 +449,23 @@ export default function Header() {
                             ) : !isLoggingOut ? (
                               <div
                                 style={{
-                                  display: "flex",
-                                  gap: "1rem",
-                                  alignItems: "center",
+                                  display: 'flex',
+                                  gap: '1rem',
+                                  alignItems: 'center',
                                 }}
                               >
                                 <Avatar img={user.user_metadata.avatar} />
                                 <Button
                                   variation="plainlink"
                                   onClick={handleLogOut}
-                                  style={{ color: "var(--color-red-700)" }}
+                                  style={{ color: 'var(--color-red-700)' }}
                                 >
                                   <li
                                     style={{
-                                      fontSize: "90%",
-                                      display: "flex",
-                                      alignItems: "center",
-                                      gap: "0.6rem",
+                                      fontSize: '90%',
+                                      display: 'flex',
+                                      alignItems: 'center',
+                                      gap: '0.6rem',
                                     }}
                                   >
                                     <IoMdLogOut /> Log Out

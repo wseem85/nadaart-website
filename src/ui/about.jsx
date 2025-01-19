@@ -1,22 +1,22 @@
-import styled from "styled-components";
-import Stack from "./stack";
-import Heading from "./heading";
-import SectionHeading from "./sectionHeading";
-import Paragraph from "./paragraph";
+import styled from 'styled-components';
+import Stack from './stack';
+import Heading from './heading';
+import SectionHeading from './sectionHeading';
+import Paragraph from './paragraph';
 
-import FormRow from "./formRow";
-import Input from "./input";
-import Textarea from "./textArea";
-import Button from "./button";
-import { useForm } from "react-hook-form";
-import PropTypes from "prop-types";
-import { useState } from "react";
-import useWindowWidth from "../hooks/useWindowWidth";
-import toast from "react-hot-toast";
-import SpinnerMini from "./spinnerMini";
-import { MdAlternateEmail, MdPhone } from "react-icons/md";
-import { FaCircleUser } from "react-icons/fa6";
-import { BiMessageDetail } from "react-icons/bi";
+import FormRow from './formRow';
+import Input from './input';
+import Textarea from './textArea';
+import Button from './button';
+import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import useWindowWidth from '../hooks/useWindowWidth';
+import toast from 'react-hot-toast';
+import SpinnerMini from './spinnerMini';
+import { MdAlternateEmail, MdPhone } from 'react-icons/md';
+import { FaCircleUser } from 'react-icons/fa6';
+import { BiMessageDetail } from 'react-icons/bi';
 const TitleMain = styled.div`
   color: #e5e5e5;
   font-size: 70%;
@@ -186,7 +186,7 @@ const SocialMediaLink = styled.a`
   font-weight: 600;
   position: relative;
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     right: 45px;
     top: 50%;
@@ -333,7 +333,7 @@ export default function About({ drawMeRef, getInTouchRef }) {
     setIsSending(true);
     setTimeout(() => {
       setIsSending(false);
-      toast.success("Your Message is sent Successully");
+      toast.success('Your Message is sent Successully');
       reset();
     }, 1500);
   }
@@ -346,7 +346,7 @@ export default function About({ drawMeRef, getInTouchRef }) {
           <Heading as="h1">Hello 👋 I am</Heading>
           <section>
             <div>
-              <Heading as="h2">Nada Kharma</Heading>
+              <Heading as="h2">Nada</Heading>
             </div>
             <div>
               <Heading as="h2"> An Artist</Heading>
@@ -374,10 +374,10 @@ export default function About({ drawMeRef, getInTouchRef }) {
                 </Paragraph>
                 <div
                   style={{
-                    width: "100%",
-                    height: "1px",
-                    backgroundColor: "var(--color-beige-500)",
-                    marginBottom: "1.3rem",
+                    width: '100%',
+                    height: '1px',
+                    backgroundColor: 'var(--color-beige-500)',
+                    marginBottom: '1.3rem',
                   }}
                 ></div>
               </Stack>
@@ -393,7 +393,7 @@ export default function About({ drawMeRef, getInTouchRef }) {
                   <SocialMediaIcon src="logos/Instagram.svg" text="Instagram" />
                 </SocialMediaLink>
                 <SocialMediaLink
-                  href="https://www.facebook.com/nada.kh3"
+                  href="https://www.facebook.com/profile.php?id=100092463108581"
                   target="_blank"
                 >
                   <span> Facebook</span>
@@ -402,11 +402,11 @@ export default function About({ drawMeRef, getInTouchRef }) {
               </Stack>
               <div
                 style={{
-                  width: "100%",
-                  height: "1px",
-                  backgroundColor: "var(--color-beige-500)",
-                  marginBottom: "1.3rem",
-                  marginTop: "2rem",
+                  width: '100%',
+                  height: '1px',
+                  backgroundColor: 'var(--color-beige-500)',
+                  marginBottom: '1.3rem',
+                  marginTop: '2rem',
                 }}
               ></div>
             </Stack>
@@ -431,17 +431,17 @@ export default function About({ drawMeRef, getInTouchRef }) {
         <div
           ref={drawMeRef}
           style={{
-            width: "100%",
+            width: '100%',
             backgroundImage:
               windowWidth < 640
-                ? "url(/images/about-3.webp)"
-                : "url(/images/about-2.webp)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "650px",
+                ? 'url(/images/about-3.webp)'
+                : 'url(/images/about-2.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '650px',
           }}
         >
           <StyledAboutForm onSubmit={handleSubmit(onSubmit)}>
@@ -449,14 +449,14 @@ export default function About({ drawMeRef, getInTouchRef }) {
               label={
                 <FaCircleUser
                   style={{
-                    width: "2.3rem",
-                    height: "2.3rem",
-                    color: "var(--color-grey-50)",
+                    width: '2.3rem',
+                    height: '2.3rem',
+                    color: 'var(--color-grey-50)',
                   }}
                 />
               }
               error={errors?.fullName?.message}
-              errorColor={windowWidth < 640 ? "#ffb6b6" : "#a10000"}
+              errorColor={windowWidth < 640 ? '#ffb6b6' : '#a10000'}
               labelWidth="50px"
             >
               <Input
@@ -464,8 +464,8 @@ export default function About({ drawMeRef, getInTouchRef }) {
                 disabled={isSending}
                 type="text"
                 id="fullName"
-                {...register("fullName", {
-                  required: "this feild is required",
+                {...register('fullName', {
+                  required: 'this feild is required',
                 })}
               />
             </FormRow>
@@ -473,14 +473,14 @@ export default function About({ drawMeRef, getInTouchRef }) {
               label={
                 <MdPhone
                   style={{
-                    width: "2.3rem",
-                    height: "2.3rem",
-                    color: "var(--color-grey-50)",
+                    width: '2.3rem',
+                    height: '2.3rem',
+                    color: 'var(--color-grey-50)',
                   }}
                 />
               }
               error={errors?.phone?.message}
-              errorColor={windowWidth < 640 ? "#ffb6b6" : "#a10000"}
+              errorColor={windowWidth < 640 ? '#ffb6b6' : '#a10000'}
               labelWidth="50px"
             >
               <Input
@@ -488,12 +488,12 @@ export default function About({ drawMeRef, getInTouchRef }) {
                 disabled={isSending}
                 type="number"
                 id="phone"
-                {...register("phone", {
-                  required: "this feild is required",
+                {...register('phone', {
+                  required: 'this feild is required',
                   pattern: {
                     value:
                       /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/,
-                    message: "Invalid phone number",
+                    message: 'Invalid phone number',
                   },
                 })}
               />
@@ -502,14 +502,14 @@ export default function About({ drawMeRef, getInTouchRef }) {
               label={
                 <MdAlternateEmail
                   style={{
-                    width: "2.3rem",
-                    height: "2.3rem",
-                    color: "var(--color-grey-50)",
+                    width: '2.3rem',
+                    height: '2.3rem',
+                    color: 'var(--color-grey-50)',
                   }}
                 />
               }
               error={errors?.email?.message}
-              errorColor={windowWidth < 640 ? "#ffb6b6" : "#a10000"}
+              errorColor={windowWidth < 640 ? '#ffb6b6' : '#a10000'}
               labelWidth="50px"
             >
               <Input
@@ -517,11 +517,11 @@ export default function About({ drawMeRef, getInTouchRef }) {
                 disabled={isSending}
                 type="email"
                 id="email"
-                {...register("email", {
-                  required: "this feild is required",
+                {...register('email', {
+                  required: 'this feild is required',
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid email format",
+                    message: 'Invalid email format',
                   },
                 })}
               />
@@ -530,14 +530,14 @@ export default function About({ drawMeRef, getInTouchRef }) {
               label={
                 <BiMessageDetail
                   style={{
-                    width: "2.3rem",
-                    height: "2.3rem",
-                    color: "var(--color-grey-50)",
+                    width: '2.3rem',
+                    height: '2.3rem',
+                    color: 'var(--color-grey-50)',
                   }}
                 />
               }
               error={errors?.message?.message}
-              errorColor={windowWidth < 640 ? "#400000" : "#a10000"}
+              errorColor={windowWidth < 640 ? '#400000' : '#a10000'}
               labelWidth="50px"
             >
               <Textarea
@@ -545,17 +545,17 @@ export default function About({ drawMeRef, getInTouchRef }) {
                 disabled={isSending}
                 type="text"
                 id="message"
-                {...register("message", {
-                  required: "please insert your message ",
+                {...register('message', {
+                  required: 'please insert your message ',
                 })}
               />
             </FormRow>
             <FormRow className="lastRow">
               <Button
                 filled="filled"
-                style={{ paddingLeft: "1rem", paddingRight: "1rem" }}
+                style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
               >
-                {isSending ? <SpinnerMini color="#fff" /> : "send"}
+                {isSending ? <SpinnerMini color="#fff" /> : 'send'}
               </Button>
             </FormRow>
           </StyledAboutForm>
